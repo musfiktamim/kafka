@@ -133,6 +133,6 @@ node consumer.js <GROUP_NAME>
 node producer.js
 ```
 ```bash
-> tony south
-> tony north
+> <NAME> <STATE>
+> <NAME> <STATE>
 ```
