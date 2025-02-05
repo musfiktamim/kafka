@@ -29,7 +29,7 @@ confluentinc/cp-kafka
 const { Kafka } = require("kafkajs");
 
 exports.kafka = new Kafka({
-  clientId: "my-app",
+  clientId: "<APP_NAME>",
   brokers: ["<PRIVATE_IP>:9092"],
 });
 
@@ -42,18 +42,18 @@ async function init() {
   const admin = kafka.admin();
   console.log("Admin connecting...");
   admin.connect();
-  console.log("Adming Connection Success...");
+  console.log("Adming Connected...");
 
-  console.log("Creating Topic [rider-updates]");
+  console.log("Creating Topic [<TOPIC_NAME>]");
   await admin.createTopics({
     topics: [
       {
-        topic: "rider-updates",
-        numPartitions: 2,
+        topic: "<TOPIC_NAME>",
+        numPartitions: 2, ```PERTISION NUMBER```
       },
     ],
   });
-  console.log("Topic Created Success [rider-updates]");
+  console.log("Topic Created [<TOPIC_NAME>]");
 
   console.log("Disconnecting Admin..");
   await admin.disconnect();
@@ -74,9 +74,9 @@ const rl = readline.createInterface({
 async function init() {
   const producer = kafka.producer();
 
-  console.log("Connecting Producer");
+  console.log("Connecting Producer...");
   await producer.connect();
-  console.log("Producer Connected Successfully");
+  console.log("Producer Connected.");
 
   rl.setPrompt("> ");
   rl.prompt();
